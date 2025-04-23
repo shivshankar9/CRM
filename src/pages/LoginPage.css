@@ -1,0 +1,126 @@
+.login-page {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+  }
+  
+  .login-left,
+  .login-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .login-left {
+    background: url('https://source.unsplash.com/800x600/?business,teamwork') no-repeat center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .branding {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    max-width: 90%;
+  }
+  
+  .branding h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .branding p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+  }
+  
+  .theme-toggle {
+    margin-top: 20px;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .theme-toggle:hover {
+    background-color: #2563eb;
+  }
+  
+  .login-right {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  .signin-box {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .signin-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #111827;
+  }
+  
+  /* --- Responsive Layout --- */
+  @media (max-width: 1024px) {
+    .branding h1 {
+      font-size: 2.2rem;
+    }
+  
+    .branding p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login-page {
+      flex-direction: column;
+    }
+  
+    .login-left,
+    .login-right {
+      flex: none;
+      width: 100%;
+      padding: 1.5rem;
+    }
+  
+    .branding {
+      padding: 30px;
+    }
+  
+    .signin-box {
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .branding h1 {
+      font-size: 1.8rem;
+    }
+  
+    .branding p {
+      font-size: 0.9rem;
+    }
+  
+    .theme-toggle {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    .signin-title {
+      font-size: 1.3rem;
+    }
+  }
+  

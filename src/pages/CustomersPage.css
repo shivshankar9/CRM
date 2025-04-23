@@ -1,0 +1,136 @@
+/* CustomersPage.css */
+
+.customers-page {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .page-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .btn-add-customer {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-add-customer:hover {
+    background-color: #0056b3;
+  }
+  
+  .customers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .customers-table th,
+  .customers-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .customers-table th {
+    background-color: #f4f4f4;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .customers-table td {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .customers-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-edit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .btn-edit:hover {
+    background-color: #218838;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .btn-delete:hover {
+    background-color: #c82333;
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .topbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .customers-table th,
+    .customers-table td {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    .customers-table {
+      font-size: 12px;
+    }
+  
+    .btn-add-customer {
+      width: 100%;
+    }
+  
+    .btn-edit,
+    .btn-delete {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  
