@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
 import Dashboard from "./pages/Dashboard";
@@ -19,9 +19,21 @@ const ProtectedRoute = ({ children }) => (
   </>
 );
 
+const RootRedirect = () => (
+  <>
+    <SignedIn>
+      <Navigate to="/dashboard" replace />
+    </SignedIn>
+    <SignedOut>
+      <Navigate to="/login" replace />
+    </SignedOut>
+  </>
+);
+
 const App = () => {
   return (
     <Routes>
+      <Route path="/" element={<RootRedirect />} />
       <Route path="/login" element={<LoginPage />} />
 
       <Route
