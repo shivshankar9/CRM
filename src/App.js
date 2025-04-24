@@ -7,18 +7,17 @@ import LeadsPage from "./pages/LeadsPage";
 import ReportsPage from "./pages/ReportsPage";
 import TasksPage from "./pages/TasksPage";
 import CustomersPage from "./pages/CustomersPage";
+import CallDetails from './pages/CallDetails';
 
 // Wrapper to protect routes using Clerk
-const ProtectedRoute = ({ children }) => {
-  return (
-    <>
-      <SignedIn>{children}</SignedIn>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
-    </>
-  );
-};
+const ProtectedRoute = ({ children }) => (
+  <>
+    <SignedIn>{children}</SignedIn>
+    <SignedOut>
+      <RedirectToSignIn />
+    </SignedOut>
+  </>
+);
 
 const App = () => {
   return (
@@ -66,6 +65,15 @@ const App = () => {
         element={
           <ProtectedRoute>
             <CustomersPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/calls/:id"
+        element={
+          <ProtectedRoute>
+            <CallDetails />
           </ProtectedRoute>
         }
       />

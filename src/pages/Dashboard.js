@@ -8,7 +8,7 @@ import {
   FaUserPlus,
   FaFileAlt,
   FaCalendarCheck,
-  FaCog,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { useClerk } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +39,10 @@ const Dashboard = () => {
     console.log(`Submitted [${modalType}]:`, formData);
     closeModal();
     alert(`${modalType.charAt(0).toUpperCase() + modalType.slice(1)} submitted!`);
+  };
+
+  const handleCall = () => {
+    setModalType("call");
   };
 
   return (
@@ -105,12 +109,23 @@ const Dashboard = () => {
               <FaUserFriends /> Add Customer
             </div>
           </button>
+          <button className="action-button action-green" onClick={handleCall}>
+            <div className="action-content">
+              <FaPhoneAlt /> Start Call
+            </div>
+          </button>
         </div>
 
         {modalType && (
           <div className="modal-backdrop">
             <div className="modal">
-              <h3>{modalType === "lead" && "New Lead"}{modalType === "report" && "Generate Report"}{modalType === "task" && "Schedule Task"}{modalType === "customer" && "Add Customer"}</h3>
+              <h3>
+                {modalType === "lead" && "New Lead"}
+                {modalType === "report" && "Generate Report"}
+                {modalType === "task" && "Schedule Task"}
+                {modalType === "customer" && "Add Customer"}
+                {modalType === "call" && "Start Call"}
+              </h3>
               <form onSubmit={handleFormSubmit}>
                 {modalType === "lead" && (
                   <>
@@ -141,6 +156,21 @@ const Dashboard = () => {
                       <option value="customer">Customer Report</option>
                       <option value="tasks">Task Report</option>
                     </select>
+                  </>
+                )}
+                {modalType === "call" && (
+                  <>
+                    <input
+                      name="callee"
+                      placeholder="Enter Number or User ID"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    <textarea
+                      name="notes"
+                      placeholder="Call Notes (optional)"
+                      onChange={handleInputChange}
+                    ></textarea>
                   </>
                 )}
                 <div className="form-actions">
