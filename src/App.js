@@ -8,6 +8,9 @@ import ReportsPage from "./pages/ReportsPage";
 import TasksPage from "./pages/TasksPage";
 import CustomersPage from "./pages/CustomersPage";
 import CallDetails from './pages/CallDetails';
+import SignUpPage from "./pages/SignUpPage";
+import CallLogsPage from "./pages/CallLogsPage";
+import CampaignPage from "./pages/Campaigns"
 
 // Wrapper to protect routes using Clerk
 const ProtectedRoute = ({ children }) => (
@@ -35,6 +38,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<RootRedirect />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
+
 
       <Route
         path="/dashboard"
@@ -53,6 +58,8 @@ const App = () => {
           </ProtectedRoute>
         }
       />
+      <Route path="/campaigns" element={<ProtectedRoute><CampaignPage /></ProtectedRoute>} />
+
 
       <Route
         path="/reports"
@@ -80,6 +87,15 @@ const App = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/callslogs"
+        element={
+          <ProtectedRoute>
+            <CallLogsPage />
+          </ProtectedRoute>
+        }
+      />
+
 
       <Route
         path="/calls/:id"

@@ -34,12 +34,39 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+  
+    if (modalType === "call") {
+      try {
+        const res = await fetch("http://localhost:5000/api/call", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ callee: formData.callee }),
+        });
+  
+        const data = await res.json();
+  
+        if (res.ok) {
+          alert("📞 Call started successfully!");
+        } else {
+          alert("❌ Call failed: " + data.error);
+        }
+      } catch (err) {
+        console.error("Call error:", err);
+        alert("❌ Error while starting the call.");
+      }
+  
+      closeModal();
+      return;
+    }
+  
+    // Regular form submissions (lead, task, etc.)
     console.log(`Submitted [${modalType}]:`, formData);
     closeModal();
     alert(`${modalType.charAt(0).toUpperCase() + modalType.slice(1)} submitted!`);
   };
+  
 
   const handleCall = () => {
     setModalType("call");
@@ -51,7 +78,13 @@ const Dashboard = () => {
         <div className="sidebar-title">CRM Panel</div>
         <div className="nav-links">
           <a className="nav-item" onClick={() => navigate("/leads")}>
-            <FaUserFriends /> Leads
+            <FaUserFriends /> Leads 
+          </a>
+          <a className="nav-item" onClick={() => navigate("/leads")}>
+            <FaUserFriends /> Manage Billing 
+          </a>
+          <a className="nav-item" onClick={() => navigate("/campaigns")}>
+            <FaUserFriends /> Campaigns
           </a>
           <a className="nav-item" onClick={() => navigate("/reports")}>
             <FaChartBar /> Reports
@@ -61,6 +94,9 @@ const Dashboard = () => {
           </a>
           <a className="nav-item" onClick={() => navigate("/tasks")}>
             <FaCalendarCheck /> Tasks
+          </a>
+          <a className="nav-item" onClick={() => navigate("/tasks")}>
+            <FaCalendarCheck /> Settings
           </a>
         </div>
         <div className="logout-section">
