@@ -85,7 +85,7 @@ const Dashboard = () => {
           <a className="nav-item" onClick={() => navigate("/billing")}>
             <FaUserFriends /> Manage Billing 
           </a>
-          <a className="nav-item" onClick={() => navigate("/billing")}> 
+          <a className="nav-item" onClick={() => navigate("/employee")}> 
             <FaUserFriends /> Manage Employee
           </a>
           <a className="nav-item" onClick={() => navigate("/campaigns")}>
