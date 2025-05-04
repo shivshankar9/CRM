@@ -102,6 +102,7 @@ const CampaignPage = () => {
       dataIndex: 'description',
       key: 'description',
     },
+    
   ];
 
   return (
