@@ -9,6 +9,8 @@ import {
   FaFileAlt,
   FaCalendarCheck,
   FaPhoneAlt,
+  FaRobot,
+  FaLifeRing
 } from "react-icons/fa";
 import { useClerk } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
@@ -80,8 +82,11 @@ const Dashboard = () => {
           <a className="nav-item" onClick={() => navigate("/leads")}>
             <FaUserFriends /> Leads 
           </a>
-          <a className="nav-item" onClick={() => navigate("/leads")}>
+          <a className="nav-item" onClick={() => navigate("/billing")}>
             <FaUserFriends /> Manage Billing 
+          </a>
+          <a className="nav-item" onClick={() => navigate("/billing")}> 
+            <FaUserFriends /> Manage Employee
           </a>
           <a className="nav-item" onClick={() => navigate("/campaigns")}>
             <FaUserFriends /> Campaigns
@@ -98,6 +103,14 @@ const Dashboard = () => {
           <a className="nav-item" onClick={() => navigate("/tasks")}>
             <FaCalendarCheck /> Settings
           </a>
+          <a className="nav-item" onClick={() => navigate("/ai-assistant")}>
+  <FaRobot /> AI Assistant
+</a>
+
+          <a className="nav-item" onClick={() => navigate("/support")}>
+  <FaLifeRing /> Support Tickets
+</a>
+
         </div>
         <div className="logout-section">
           <a className="logout-link" onClick={handleLogout}>
